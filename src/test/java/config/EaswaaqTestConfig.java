@@ -24,7 +24,6 @@ public class EaswaaqTestConfig {
                 .setPort(443)
                 .addHeader("Content-Type", "application/json")
                 .addHeader("Accept", "application/json")
-                .addHeader("Authorization", "Bearer " + token)
                 .addFilter(new RequestLoggingFilter())
                 .addFilter(new ResponseLoggingFilter())
                 .build();
