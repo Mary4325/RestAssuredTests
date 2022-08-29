@@ -1,6 +1,5 @@
 import config.EaswaaqTestConfig;
 import config.LogisticsServiceEndpoints;
-import config.OrderServiceEndpoints;
 import config.UserServiceEndpoints;
 import io.restassured.http.ContentType;
 import org.junit.BeforeClass;
@@ -34,7 +33,7 @@ public class LogisticsServiceTests extends EaswaaqTestConfig  {
         given().
                 header("Authorization", "Bearer " + token).
                 queryParams("sellerId", 1785).
-                get(LogisticsServiceEndpoints.DELIVERYMETHODS).
+                get(LogisticsServiceEndpoints.DELIVERY_METHODS).
                 then().statusCode(200).log().all().
                 body("value [0].selected", equalTo(true)).
                 body("value [0].providerName", equalTo("ARAMEX")).

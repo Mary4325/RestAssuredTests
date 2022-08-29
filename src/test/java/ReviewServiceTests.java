@@ -1,4 +1,6 @@
-import config.*;
+import config.EaswaaqTestConfig;
+import config.ReviewServiceEndpoints;
+import config.UserServiceEndpoints;
 import io.restassured.http.ContentType;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -6,7 +8,7 @@ import org.junit.Test;
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.equalTo;
 
-public class ReviewServiceTests extends EaswaaqTestConfig  {
+public class ReviewServiceTests extends EaswaaqTestConfig {
     static String token;
 
     @BeforeClass

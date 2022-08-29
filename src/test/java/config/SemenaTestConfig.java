@@ -9,18 +9,17 @@ import io.restassured.specification.RequestSpecification;
 import io.restassured.specification.ResponseSpecification;
 import org.junit.BeforeClass;
 
-import static org.hamcrest.Matchers.lessThan;
-
-public class EaswaaqTestConfig {
+public class SemenaTestConfig {
 
     public static RequestSpecification easwaaqTest_requestSpec;
     public static ResponseSpecification easwaaqTest_responseSpec;
+
 
     @BeforeClass
     public static void setUp(){
 
         easwaaqTest_requestSpec = new RequestSpecBuilder()
-                .setBaseUri("https://gateway.efinancetest.bpcmarketplace.com")
+                .setBaseUri("https://gateway.semenatest.bpcmarketplace.com/")
                 .setPort(443)
                 .addHeader("Content-Type", "application/json")
                 .addHeader("Accept", "application/json")
@@ -30,7 +29,6 @@ public class EaswaaqTestConfig {
 
         easwaaqTest_responseSpec = new ResponseSpecBuilder()
                 .expectStatusCode(200)
-                .expectResponseTime(lessThan(3000L))
                 .build();
 
         RestAssured.requestSpecification = easwaaqTest_requestSpec;

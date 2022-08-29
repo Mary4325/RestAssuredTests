@@ -1,0 +1,23 @@
+spring:
+  profiles:
+    active: easwaaq_test | semena_test
+---
+spring:
+  profiles: semena_test
+resource:
+  endpoint:
+    port: 8083
+    baseUrl: https://gateway.semenatest.bpcmarketplace.com/
+  authentication:
+    username: tester@gdesemena.ru
+    password: 4GOlRMdZ3NKr
+---
+spring:
+  profiles: easwaaq_test
+resource:
+  endpoint:
+    port: 8085
+    baseUrl: https://gateway.efinancetest.bpcmarketplace.com/
+  authentication:
+    username: +209609514599
+    password: 134509

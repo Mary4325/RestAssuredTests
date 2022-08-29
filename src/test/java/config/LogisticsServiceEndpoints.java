@@ -2,5 +2,5 @@ package config;
 
 public interface LogisticsServiceEndpoints {
 
-    String DELIVERYMETHODS = "logistics-service/api/external/sellerDeliveryMethods";
+    String DELIVERY_METHODS = "logistics-service/api/external/sellerDeliveryMethods";
 }

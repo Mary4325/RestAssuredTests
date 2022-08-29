@@ -1,33 +1,28 @@
-import config.EaswaaqTestConfig;
+package semena;
+
+
 import config.ItemServiceEndpoints;
 import config.UserServiceEndpoints;
-import config.category_markers.FullRegressTests;
-import config.category_markers.SmokeTests;
+import config.SemenaTestConfig;
 import io.restassured.http.ContentType;
 import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Ignore;
 import org.junit.Test;
-import org.junit.experimental.categories.Category;
-import org.springframework.test.context.ActiveProfiles;
-import org.springframework.test.context.ContextConfiguration;
 
 import java.util.Random;
 
-import static io.restassured.RestAssured.*;
+import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.equalTo;
 
-@ContextConfiguration
-@ActiveProfiles({"easwaaq_test", "semena_test"})
-
-public class ItemServiceTests extends EaswaaqTestConfig  {
+public class ItemServiceTests extends SemenaTestConfig {
     static String token;
     static int randomInt;
     @BeforeClass
     public static void setUpVariables() {
         String operatorCreadentialsJson = """
-                {"login": "+209609514599", 
-                "password": "134509",
+                {"login": "tester@gdesemena.ru", 
+                "password": "4GOlRMdZ3NKr",
                 "profileType": "OPERATOR"}""";
         token =
                 given()
@@ -46,6 +41,7 @@ public class ItemServiceTests extends EaswaaqTestConfig  {
     }
 
     @Test
+    @Ignore
     public void getProductTest() {
         given().
                 pathParam("itemId", 83632).
@@ -57,75 +53,39 @@ public class ItemServiceTests extends EaswaaqTestConfig  {
 
     @Test
     @Ignore
-    public void changeProductStatusTest() {
-        String value = "83632";
-        ItemStatus itemstatus = new ItemStatus(new String []{value}, "PUBLISHED");
-
-        given().
-                header("Authorization", "Bearer " + token).
-                body(itemstatus).
-                put(ItemServiceEndpoints.ITEM_STATUS).
-                then().statusCode(200).log().all().
-                body("value", equalTo(true));
-    }
-
-    @Test
-    public void createUpdateDeleteProductTest() {
-        String productBodyJson = """
-                {"title":"AutotestProduct",
-                "description":"<p>AutotestProduct 2022</p>",
-                "categoryId":17,
-                "sellerId":"1766",
-                "sellerItemId":"%s",
-                "lang":"EN","vat":5,"currency":"EGP",
-                "itemType":"PHYSICAL","countryId":129874,
-                "brandId":4,"shareRule":"DENY",
-                "link":null,"checking":null,
-                "metaTitle":"AutotestProduct","metaDescription":"AutotestProduct",
-                "metaKeywords":"AutotestProduct",
-                "legalSeller":true}""".formatted("88"+ randomInt);
-        Integer value = given().
-                header("Authorization", "Bearer " + token).
-                body(productBodyJson).
-                when().
-                post(ItemServiceEndpoints.ITEMS).
-                then().statusCode(200).log().all().
-                body("success", equalTo(true)).
-                extract().
-                response().path("value");
+    public void createProductTest() {
+ String productBodyJson = """
+         {"title": "Test product 04.08.2022",
+                                           "categoryId": 2488,
+                                           "legalSeller": true,
+                                           "vat": 5.00,
+                                           "shareRule": "DENY",
+                                           "currency": "EGP",
+                                           "sellerItemId": "5919",
+                                           "description": "<p>Test product 04.08.2022</p>",
+                                           "sellerId": 1785,
+                                           "updateAdditionalFields": true,
+                                           "itemType": "PHYSICAL",
+                                           "digitalStoreId": 1,
+                                           "metaTitle": "Test product",
+                                           "metaDescription": "Test product",
+                                           "metaKeywords": "Test product",
+                                           "brand": "id": 65177,
+                                           "countryId": 129874}""";
+    Integer value = given().
+            header("Authorization", "Bearer " + token).
+            body(productBodyJson).
+            when()
+            .post(ItemServiceEndpoints.ITEMS).
+            then().statusCode(200).log().all().
+            body("success", equalTo(true)).
+            extract().
+            response().path("value");
         Assert.assertTrue(value > 0);
-
-        String valueString =Integer.toString(value);
-
-        given().
-                header("Authorization", "Bearer " + token).
-                pathParam("itemId", value).
-                body(productBodyJson).
-                when().
-                put(ItemServiceEndpoints.ITEM).
-                then().statusCode(200).log().all();
-
-        ItemStatus statusPublished = new ItemStatus(new String []{valueString}, "PUBLISHED");
-
-        given().  //here we are changing item status to Published
-                header("Authorization", "Bearer " + token).
-                body(statusPublished).
-                put(ItemServiceEndpoints.ITEM_STATUS).
-                then().statusCode(200).log().all().
-                body("value", equalTo(true));
-
-        ItemStatus statusDeleted = new ItemStatus(new String []{valueString}, "DELETED");
-
-        given().  //here we are changing item status to Deleted
-                header("Authorization", "Bearer " + token).
-                body(statusDeleted).
-                put(ItemServiceEndpoints.ITEM_STATUS).
-                then().statusCode(200).log().all().
-                body("value", equalTo(true));
     }
 
-    @Category(FullRegressTests.class)
     @Test
+    @Ignore
     public void getTagTest() {
         given().
                 pathParam("tagId", 49).
@@ -139,8 +99,8 @@ public class ItemServiceTests extends EaswaaqTestConfig  {
                 body("value.title", equalTo("Don'tDeleteTestTag"));
     }
 
-    @Category({FullRegressTests.class, SmokeTests.class})
     @Test
+    @Ignore
     public void getSKUTest() {
         given().
                 pathParam("skuId",111883).
@@ -151,66 +111,29 @@ public class ItemServiceTests extends EaswaaqTestConfig  {
                 body("value.id", equalTo(111883));
     }
 
-    @Category({SmokeTests.class})
-    @Test
-    public void createUpdateDeleteSKUTest() {
-        String campaignBodyJson = """
-                {"characteristics":{"enumsCharacteristics":{"31":[36]},"numericCharacteristics":{},
-                "stringCharacteristics":{"17":{"EN":"no"},"19":{"EN":"white"},"67":{"EN":"123456"}}},
-                "minOrderSize":1,"maxOrderSize":null,
-                "packTypeId":63,"unitId":6,"weight":10,"originalPrice":200,
-                "sellerSkuId":"%s","title":"box","stockAddressId":null,
-                "quantity":5000,"sellerId":1785}""".formatted("456"+ randomInt);
-
-        int value = given().
-                header("Authorization", "Bearer " + token).
-                pathParam("itemId", "83633").
-                body(campaignBodyJson).
-                when().
-                post(ItemServiceEndpoints.SKUS).
-                then().statusCode(200).log().all().
-                body("success", equalTo(true)).
-                extract().
-                response().path("value");
-        Assert.assertTrue(value > 0);
-
-        given().
-                header("Authorization", "Bearer " + token).
-                pathParam("skuId", value).
-                body(campaignBodyJson).
-                when().
-                put(ItemServiceEndpoints.SKU).
-                then().statusCode(200).log().all();
-
-        given().
-                header("Authorization", "Bearer " + token).
-                pathParam("skuId", value).
-                when().
-                delete(ItemServiceEndpoints.SKU).
-                then().statusCode(200).log().all();
-    }
     @Test
     public void getMarketingCampaignTest() {
         given().
                 header("Authorization", "Bearer " + token).
                 queryParams("page.size", "10").
                 queryParams("page.num", "1").
-                queryParams("id", "10").
+                queryParams("id", "49").
                 get(ItemServiceEndpoints.CAMPAIGNS).
                 then().statusCode(200).log().all().
-                body("value.data [0].id", equalTo(10)).
-                body("value.data [0].title", equalTo("Summer2022"));
+                body("value.data [0].id", equalTo(49)).
+                body("value.data [0].title", equalTo("Акция"));
     }
 
     @Test
+//   @Ignore
     public void createUpdateDeleteMarketingCampaignTest() {
         String campaignBodyJson = """
-                {"title": "%s",
-                "description":"Test2022",
+                {"title":"AutotestCompany",
+                "description":"AutotestCompany",
                 "active":true,
                 "priority":2,
-                "startedAt":"2022-08-07T00:00:00+03:00",
-                "finishedAt":"2022-08-31T00:00:00+03:00"}""".formatted("TestCampaign"+ randomInt);
+                "startedAt":"2022-08-01T00:00:00+03:00",
+                "finishedAt":"2022-12-31T00:00:00+03:00"}""".formatted("TestCampaign"+ randomInt);
         int value = given().
                 header("Authorization", "Bearer " + token).
                 body(campaignBodyJson).
@@ -228,7 +151,7 @@ public class ItemServiceTests extends EaswaaqTestConfig  {
                 body(campaignBodyJson).
                 when().
                 put(ItemServiceEndpoints.CAMPAIGN).
-                then().statusCode(200).log().all();
+                then();
 
         given().
                 header("Authorization", "Bearer " + token).
@@ -254,16 +177,17 @@ public class ItemServiceTests extends EaswaaqTestConfig  {
     }
 
     @Test
-    public void createUpdateDeleteBadgeTest() {
+    public void createBadgeTest() {
         String badgeBodyJson = """
                {"title":"%s",
-               "color":{"red":16,"green":23,"blue":60,"alpha":1},
-               "backgroundColor":{"red":248,"green":232,"blue":68,"alpha":1},
-               "position":"DOWN_RIGHT",
-               "templateId":1, "active":true,
-               "startedAt":"2022-08-01T00:00:00+03:00",
+               "color":{"red":66,"green":48,"blue":48,"alpha":1},
+               "backgroundColor":{"red":31,"green":103,"blue":94,"alpha":1},
+               "position":"UP_RIGHT",
+               "templateId":4,
+               "active":true,
+               "startedAt":"2022-08-08T00:00:00+03:00",
                "finishedAt":"2022-08-31T00:00:00+03:00",
-               "marketingCompanyId":"10"}""".formatted("Test Badge"+ randomInt);
+               "marketingCompanyId":"54"}""".formatted("Test Badge"+ randomInt);
         int value = given().
                 header("Authorization", "Bearer " + token).
                 body(badgeBodyJson).
@@ -291,7 +215,9 @@ public class ItemServiceTests extends EaswaaqTestConfig  {
                 then().statusCode(200).log().all();
     }
 
+
     @Test
+    @Ignore
     public void getPromocodeTest() {
         given().
                 pathParam("promocodeId",21).
@@ -303,7 +229,8 @@ public class ItemServiceTests extends EaswaaqTestConfig  {
     }
 
     @Test
-    public void createUpdateDeletePromocodeTest() {
+    @Ignore
+    public void createUpdateAndDeletePromocodeTest() {
         String promocodeBodyJson = """
                 {"code": "%s",
                 "type": "PERCENT",
@@ -317,8 +244,8 @@ public class ItemServiceTests extends EaswaaqTestConfig  {
         Integer value = given().
                 header("Authorization", "Bearer " + token).
                 body(promocodeBodyJson).
-                when().
-                post(ItemServiceEndpoints.PROMOCODES).
+                when()
+                .post(ItemServiceEndpoints.PROMOCODES).
                 then().statusCode(200).log().all().
                 body("success", equalTo(true)).
                 extract().

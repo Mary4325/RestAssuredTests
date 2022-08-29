@@ -1,14 +1,10 @@
 import config.EaswaaqTestConfig;
-import config.ItemServiceEndpoints;
 import config.UserServiceEndpoints;
 import io.restassured.http.ContentType;
-import io.restassured.response.Response;
-import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
 import static io.restassured.RestAssured.*;
-import static io.restassured.http.Method.GET;
 import static org.hamcrest.Matchers.equalTo;
 
 public class UserServiceTests extends EaswaaqTestConfig {
