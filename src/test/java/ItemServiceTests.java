@@ -1,3 +1,4 @@
+import Pojo.ItemStatus;
 import config.EaswaaqTestConfig;
 import config.ItemServiceEndpoints;
 import config.UserServiceEndpoints;

@@ -34,6 +34,7 @@
                     <argLine>
                         --illegal-access=permit
                     </argLine>
+                    <useSystemClassLoader>false</useSystemClassLoader>
                 </configuration>
             </plugin>
         </plugins>
@@ -43,7 +44,13 @@
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-api</artifactId>
-            <version>5.9.0-M1</version>
+            <version>5.9.0</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-params</artifactId>
+            <version>5.9.0</version>
             <scope>test</scope>
         </dependency>
         <dependency>
@@ -88,6 +95,12 @@
             <version>2.7.3</version>
             <scope>test</scope>
         </dependency>
+<!--        <dependency>-->
+<!--            <groupId>org.testng</groupId>-->
+<!--            <artifactId>testng</artifactId>-->
+<!--            <version>7.6.0</version>-->
+<!--            <scope>test</scope>-->
+<!--        </dependency>-->
 
     </dependencies>
 
@@ -95,5 +108,22 @@
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
     </properties>
+
+<!--    <profiles>-->
+<!--        <profile>-->
+<!--            <id>easwaaq_test</id>-->
+<!--            <properties>-->
+<!--                &lt;!&ndash;suppress UnresolvedMavenProperty &ndash;&gt;-->
+<!--                <test.param>${env.EASWAAQ_TEST}</test.param>-->
+<!--            </properties>-->
+<!--        </profile>-->
+<!--        <profile>-->
+<!--            <id>semena_test</id>-->
+<!--            <properties>-->
+<!--                &lt;!&ndash;suppress UnresolvedMavenProperty &ndash;&gt;-->
+<!--                <test.param>${env.SEMENA_TEST}</test.param>-->
+<!--            </properties>-->
+<!--        </profile>-->
+<!--    </profiles>-->
 
 </project>

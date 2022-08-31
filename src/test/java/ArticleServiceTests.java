@@ -134,7 +134,7 @@ public class ArticleServiceTests extends EaswaaqTestConfig {
 
     @Category({FullRegressTests.class, SmokeTests.class})
     @Test
-    public void createUpdateDeleteCategoryTest() {
+    public void createUpdateHideCategoryTest() {
         String categoryBodyJson = """
                 { "title": "AutotestCategory",
                 "shortDescription": "AutotestCategory",

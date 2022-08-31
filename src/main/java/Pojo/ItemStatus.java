@@ -1,3 +1,5 @@
+package Pojo;
+
 public class ItemStatus
 {
     private String[] ids;
