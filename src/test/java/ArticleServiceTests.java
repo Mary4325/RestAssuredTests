@@ -1,5 +1,6 @@
+import Pojo.Login;
 import config.ArticleServiceEndpoints;
-import config.EaswaaqTestConfig;
+import config.EaswaaqConnectionConfig;
 import config.UserServiceEndpoints;
 import config.category_markers.FullRegressTests;
 import config.category_markers.SmokeTests;
@@ -17,20 +18,20 @@ import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.lessThan;
 
-public class ArticleServiceTests extends EaswaaqTestConfig {
+public class ArticleServiceTests extends EaswaaqConnectionConfig {
     static String token;
     static int randomInt;
+    static String loginOperator = "+209609514599";
+    static String passwordOperator = "134509";
+    static String profileTypeOperator =  "OPERATOR";
 
     @BeforeClass
     public static void getToken() {
-        String operatorCreadentialsJson = """
-                {"login": "+209609514599", 
-                "password": "134509",
-                "profileType": "OPERATOR"}""";
+        Login loginInfo = new Login(loginOperator, passwordOperator, profileTypeOperator);
         token =
                 given()
                         .contentType(ContentType.JSON)
-                        .body(operatorCreadentialsJson)
+                        .body(loginInfo)
                         .post(UserServiceEndpoints.JWT_TOKEN)
                         .then()
                         .statusCode(200)
@@ -102,6 +103,7 @@ public class ArticleServiceTests extends EaswaaqTestConfig {
                 then().statusCode(200).log().all();
     }
 
+    @Category({FullRegressTests.class, SmokeTests.class})
     @Test
     @Ignore
     public void addBigImageToArticleTest() {

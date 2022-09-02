@@ -1,5 +1,6 @@
 D:\Projects\RestAssuredTests\RestAssuredTests\src\test\java\ReviewServiceTests.java
 D:\Projects\RestAssuredTests\RestAssuredTests\src\test\java\LogisticsServiceTests.java
+D:\Projects\RestAssuredTests\RestAssuredTests\src\test\java\CartServiceTests.java
 D:\Projects\RestAssuredTests\RestAssuredTests\src\test\java\config\category_markers\SmokeTests.java
 D:\Projects\RestAssuredTests\RestAssuredTests\src\test\java\CmsServiceTests.java
 D:\Projects\RestAssuredTests\RestAssuredTests\src\test\java\config\OrderServiceEndpoints.java
@@ -9,6 +10,7 @@ D:\Projects\RestAssuredTests\RestAssuredTests\src\test\java\config\UserServiceEn
 D:\Projects\RestAssuredTests\RestAssuredTests\src\test\java\config\CmsServiceEndpoints.java
 D:\Projects\RestAssuredTests\RestAssuredTests\src\test\java\config\EaswaaqTestConfig.java
 D:\Projects\RestAssuredTests\RestAssuredTests\src\test\java\config\ReviewServiceEndpoints.java
+D:\Projects\RestAssuredTests\RestAssuredTests\src\test\java\config\CartServiceEndpoints.java
 D:\Projects\RestAssuredTests\RestAssuredTests\src\test\java\config\ItemServiceEndpoints.java
 D:\Projects\RestAssuredTests\RestAssuredTests\src\test\java\ItemServiceTests.java
 D:\Projects\RestAssuredTests\RestAssuredTests\src\test\java\ArticleServiceTests.java

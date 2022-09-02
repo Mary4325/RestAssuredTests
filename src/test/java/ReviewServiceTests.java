@@ -1,32 +1,38 @@
-import config.EaswaaqTestConfig;
+import Pojo.Login;
+import config.EaswaaqConnectionConfig;
 import config.ReviewServiceEndpoints;
 import config.UserServiceEndpoints;
+import config.category_markers.FullRegressTests;
+import config.category_markers.SmokeTests;
 import io.restassured.http.ContentType;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
 
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.equalTo;
 
-public class ReviewServiceTests extends EaswaaqTestConfig {
+public class ReviewServiceTests extends EaswaaqConnectionConfig {
     static String token;
+    static String loginOperator = "+209609514599";
+    static String passwordOperator = "134509";
+    static String profileTypeOperator =  "OPERATOR";
 
     @BeforeClass
     public static void getToken() {
-        String operatorCreadentialsJson = """
-                {"login": "+209609514599", 
-                "password": "134509",
-                "profileType": "OPERATOR"}""";
+        Login loginInfo = new Login(loginOperator, passwordOperator, profileTypeOperator);
         token =
                 given()
                         .contentType(ContentType.JSON)
-                        .body(operatorCreadentialsJson)
+                        .body(loginInfo)
                         .post(UserServiceEndpoints.JWT_TOKEN)
                         .then()
                         .statusCode(200)
                         .extract()
                         .response().path("value.token").toString();
     }
+
+    @Category({FullRegressTests.class, SmokeTests.class})
     @Test
     public void getReviewTest() {
         given().

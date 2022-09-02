@@ -1,5 +1,6 @@
 import Pojo.ItemStatus;
-import config.EaswaaqTestConfig;
+import Pojo.Login;
+import config.EaswaaqConnectionConfig;
 import config.ItemServiceEndpoints;
 import config.UserServiceEndpoints;
 import config.category_markers.FullRegressTests;
@@ -10,30 +11,31 @@ import org.junit.BeforeClass;
 import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
-import org.springframework.test.context.ActiveProfiles;
-import org.springframework.test.context.ContextConfiguration;
+//import org.springframework.test.context.ActiveProfiles;
+//import org.springframework.test.context.ContextConfiguration;
 
 import java.util.Random;
 
 import static io.restassured.RestAssured.*;
 import static org.hamcrest.Matchers.equalTo;
 
-@ContextConfiguration
-@ActiveProfiles({"easwaaq_test", "semena_test"})
+//@ContextConfiguration
+//@ActiveProfiles({"easwaaq_test", "semena_test"})
 
-public class ItemServiceTests extends EaswaaqTestConfig  {
+public class ItemServiceTests extends EaswaaqConnectionConfig {
     static String token;
     static int randomInt;
+    static String loginOperator = "+209609514599";
+    static String passwordOperator = "134509";
+    static String profileTypeOperator =  "OPERATOR";
+
     @BeforeClass
-    public static void setUpVariables() {
-        String operatorCreadentialsJson = """
-                {"login": "+209609514599", 
-                "password": "134509",
-                "profileType": "OPERATOR"}""";
+    public static void getToken() {
+        Login loginInfo = new Login(loginOperator, passwordOperator, profileTypeOperator);
         token =
                 given()
                         .contentType(ContentType.JSON)
-                        .body(operatorCreadentialsJson)
+                        .body(loginInfo)
                         .post(UserServiceEndpoints.JWT_TOKEN)
                         .then()
                         .statusCode(200)
@@ -46,6 +48,7 @@ public class ItemServiceTests extends EaswaaqTestConfig  {
         randomInt = randomGenerator.nextInt(1000); // get random number in the range of 0-1000
     }
 
+    @Category({FullRegressTests.class, SmokeTests.class})
     @Test
     public void getProductTest() {
         given().
@@ -70,6 +73,7 @@ public class ItemServiceTests extends EaswaaqTestConfig  {
                 body("value", equalTo(true));
     }
 
+    @Category({FullRegressTests.class, SmokeTests.class})
     @Test
     public void createUpdateDeleteProductTest() {
         String productBodyJson = """
@@ -125,7 +129,7 @@ public class ItemServiceTests extends EaswaaqTestConfig  {
                 body("value", equalTo(true));
     }
 
-    @Category(FullRegressTests.class)
+    @Category({FullRegressTests.class, SmokeTests.class})
     @Test
     public void getTagTest() {
         given().
@@ -152,7 +156,7 @@ public class ItemServiceTests extends EaswaaqTestConfig  {
                 body("value.id", equalTo(111883));
     }
 
-    @Category({SmokeTests.class})
+    @Category({FullRegressTests.class, SmokeTests.class})
     @Test
     public void createUpdateDeleteSKUTest() {
         String campaignBodyJson = """
@@ -190,6 +194,7 @@ public class ItemServiceTests extends EaswaaqTestConfig  {
                 delete(ItemServiceEndpoints.SKU).
                 then().statusCode(200).log().all();
     }
+    @Category({FullRegressTests.class, SmokeTests.class})
     @Test
     public void getMarketingCampaignTest() {
         given().
@@ -203,6 +208,7 @@ public class ItemServiceTests extends EaswaaqTestConfig  {
                 body("value.data [0].title", equalTo("Summer2022"));
     }
 
+    @Category({FullRegressTests.class, SmokeTests.class})
     @Test
     public void createUpdateDeleteMarketingCampaignTest() {
         String campaignBodyJson = """
@@ -239,6 +245,7 @@ public class ItemServiceTests extends EaswaaqTestConfig  {
                 then().statusCode(200).log().all();
     }
 
+    @Category({FullRegressTests.class, SmokeTests.class})
     @Test
     public void getBadgeTest() {
         given().
@@ -254,6 +261,7 @@ public class ItemServiceTests extends EaswaaqTestConfig  {
                 body("value.data [0].title", equalTo("Summer2022 Badge"));
     }
 
+    @Category({FullRegressTests.class, SmokeTests.class})
     @Test
     public void createUpdateDeleteBadgeTest() {
         String badgeBodyJson = """
@@ -292,6 +300,7 @@ public class ItemServiceTests extends EaswaaqTestConfig  {
                 then().statusCode(200).log().all();
     }
 
+    @Category({FullRegressTests.class, SmokeTests.class})
     @Test
     public void getPromocodeTest() {
         given().
@@ -303,6 +312,7 @@ public class ItemServiceTests extends EaswaaqTestConfig  {
                 body("value [0].code", equalTo("1010"));
     }
 
+    @Category({FullRegressTests.class, SmokeTests.class})
     @Test
     public void createUpdateDeletePromocodeTest() {
         String promocodeBodyJson = """

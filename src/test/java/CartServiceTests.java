@@ -1,38 +1,39 @@
-import config.ArticleServiceEndpoints;
+import Pojo.Login;
 import config.CartServiceEndpoints;
-import config.EaswaaqTestConfig;
+import config.EaswaaqConnectionConfig;
 import config.UserServiceEndpoints;
 import config.category_markers.FullRegressTests;
 import config.category_markers.SmokeTests;
 import io.restassured.http.ContentType;
-import org.junit.Assert;
 import org.junit.BeforeClass;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
 
-import java.io.File;
 import java.util.Random;
 
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.*;
 
-public class CartServiceTests extends EaswaaqTestConfig {
+public class CartServiceTests extends EaswaaqConnectionConfig {
     static String token;
-
     static int buyerId = 1859;
+    static int item1 = 83632;
+    static int item2 = 83633;
+    static int skuId1 = 111883;
+    static int skuId2 = 111885;
+    static int sellerId = 1785;
+    static String loginBuyer = "+20223652567";
+    static String passwordBuyer = "Qwe!2345";
+    static String profileTypeBuyer =  "COMMON_BUYER";
     static int randomInt;
 
     @BeforeClass
     public static void getToken() {
-        String operatorCreadentialsJson = """
-                {"login": "+20223652567", 
-                "password": "Qwe!2345",
-                "profileType": "COMMON_BUYER"}""";
+        Login loginInfo = new Login(loginBuyer, passwordBuyer, profileTypeBuyer);
         token =
                 given()
                         .contentType(ContentType.JSON)
-                        .body(operatorCreadentialsJson)
+                        .body(loginInfo)
                         .post(UserServiceEndpoints.JWT_TOKEN)
                         .then()
                         .statusCode(200)
@@ -51,7 +52,7 @@ public class CartServiceTests extends EaswaaqTestConfig {
     public void createGetDeleteWishlistTest() {
         String wishBodyJson = """
                 {"buyerId": %s,
-                "itemIds": [83633, 83632]}""".formatted(buyerId);
+                "itemIds": [%s, %s]}""".formatted(buyerId, item1, item2);
 
         given().
                 header("Authorization", "Bearer " + token).
@@ -66,13 +67,60 @@ public class CartServiceTests extends EaswaaqTestConfig {
                 header("Authorization", "Bearer " + token).
                 get(CartServiceEndpoints.WISH).
                 then().statusCode(200).log().all().
-                body("value.itemIds", hasItems(83633, 83632));
+                body("value.itemIds", hasItems(item1, item2));
+
+        String wishDeleteBodyJson = """
+                {"buyerId": %s,
+                "itemIds": [%s, %s],
+                "removeAll": true}""".formatted(buyerId, item1, item2);
 
         given().
                 header("Authorization", "Bearer " + token).
-                formParam("buyerId", buyerId).
+                body(wishDeleteBodyJson).
                 when().
                 delete(CartServiceEndpoints.WISH).
                 then().statusCode(200).log().all();
     }
+
+    @Category({FullRegressTests.class, SmokeTests.class})
+    @Test
+    public void AddProductsToCartTest() {
+        String cartBodyJson = """    
+                {"buyerId": %s, "verifiedBuyer": true,
+                "items": [{"skuId": %s,"count": 1},
+                {"skuId": %s,"count": 2}]}""".formatted(buyerId, skuId1, skuId2);
+
+        given().
+                header("Authorization", "Bearer " + token).
+                body(cartBodyJson).
+                when().
+                post(CartServiceEndpoints.UPDATE_CART).
+                then().statusCode(200).log().all().
+                body("value.buyerId", equalTo(buyerId));
+
+        given().
+                formParam("buyerId", buyerId).
+                header("Authorization", "Bearer " + token).
+                get(CartServiceEndpoints.CART).
+                then().statusCode(200).log().all().
+                rootPath("value.sellers.1785.sku").
+                body("", hasItems(hasEntry("skuId", 111883)), hasEntry("skuId", 111885));
+//                body("value.buyerId", equalTo(buyerId)).
+//                body("value.sellers.1785.sku", contains(111883, 111885)).extract().
+
+
+        String emptyCartBodyJson = """
+        {"buyerId": %s, "items": 
+        [{"skuId": %s,"sellerId": %s}, {"skuId": %s,"sellerId": %s}],
+        "removeAll": true}""".formatted(buyerId, skuId1, sellerId, skuId2, sellerId);
+
+        given().
+                header("Authorization", "Bearer " + token).
+                body(emptyCartBodyJson).
+                when().
+                delete(CartServiceEndpoints.CART).
+                then().statusCode(200).log().all();
+             //   body("value.sellers.", equalTo("<{}>"));
+    }
+
 }

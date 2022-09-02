@@ -9,9 +9,7 @@ import io.restassured.specification.RequestSpecification;
 import io.restassured.specification.ResponseSpecification;
 import org.junit.BeforeClass;
 
-import static org.hamcrest.Matchers.lessThan;
-
-public class EaswaaqTestConfig {
+public class EaswaaqConnectionConfig {
 
     public static RequestSpecification easwaaqTest_requestSpec;
     public static ResponseSpecification easwaaqTest_responseSpec;
@@ -30,7 +28,7 @@ public class EaswaaqTestConfig {
 
         easwaaqTest_responseSpec = new ResponseSpecBuilder()
                 .expectStatusCode(200)
-                .expectResponseTime(lessThan(3000L))
+                //.expectResponseTime(lessThan(3000L))
                 .build();
 
         RestAssured.requestSpecification = easwaaqTest_requestSpec;

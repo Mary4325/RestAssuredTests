@@ -1,10 +1,12 @@
 config\OrderServiceEndpoints.class
+config\CartServiceEndpoints.class
 config\UserServiceEndpoints.class
 ArticleServiceTests.class
 CmsServiceTests.class
 config\ItemServiceEndpoints.class
 config\CmsServiceEndpoints.class
 config\ReviewServiceEndpoints.class
+CartServiceTests.class
 config\LogisticsServiceEndpoints.class
 LogisticsServiceTests.class
 ReviewServiceTests.class

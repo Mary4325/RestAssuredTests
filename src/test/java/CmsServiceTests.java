@@ -1,11 +1,13 @@
 import config.ArticleServiceEndpoints;
 import config.CmsServiceEndpoints;
-import config.EaswaaqTestConfig;
+import config.EaswaaqConnectionConfig;
 import config.UserServiceEndpoints;
+import config.category_markers.FullRegressTests;
 import io.restassured.http.ContentType;
 import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
 
 import java.io.File;
 import java.util.Random;
@@ -13,7 +15,7 @@ import java.util.Random;
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.equalTo;
 
-public class CmsServiceTests extends EaswaaqTestConfig {
+public class CmsServiceTests extends EaswaaqConnectionConfig {
     static String token;
     static int randomInt;
 
@@ -40,6 +42,7 @@ public class CmsServiceTests extends EaswaaqTestConfig {
         randomInt = randomGenerator.nextInt(500); // get random number in the range of 0-500
     }
 
+    @Category({FullRegressTests.class})
     @Test
     public void getElementTest() {
         given().
@@ -51,6 +54,7 @@ public class CmsServiceTests extends EaswaaqTestConfig {
                 body("value.title", equalTo("Keyboards"));
     }
 
+    @Category({FullRegressTests.class})
     @Test
     public void createUpdateBlockElementTest() {
         String articleBodyJson = """
@@ -83,11 +87,11 @@ public class CmsServiceTests extends EaswaaqTestConfig {
                 then().statusCode(200).log().all().
                 body("success", equalTo(true));
 
-//        given().
-//                header("Authorization", "Bearer " + token).
-//                pathParam("elementId", value).
-//                when().
-//                delete(CmsServiceEndpoints.ELEMENT).
-//                then().statusCode(200).log().all();
+        given().
+                header("Authorization", "Bearer " + token).
+                pathParam("elementId", value).
+                when().
+                delete(CmsServiceEndpoints.ELEMENT).
+                then().statusCode(200).log().all();
     }
 }
