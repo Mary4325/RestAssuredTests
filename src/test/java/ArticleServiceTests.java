@@ -24,6 +24,7 @@ public class ArticleServiceTests extends EaswaaqConnectionConfig {
     static String loginOperator = "+209609514599";
     static String passwordOperator = "134509";
     static String profileTypeOperator =  "OPERATOR";
+    static int articleId = 28;
 
     @BeforeClass
     public static void getToken() {
@@ -49,12 +50,12 @@ public class ArticleServiceTests extends EaswaaqConnectionConfig {
     @Test
     public void getArticleTest() {
         given().
-                pathParam("articleId", 8).
+                pathParam("articleId", articleId).
                 header("Authorization", "Bearer " + token).
                 get(ArticleServiceEndpoints.ARTICLE).
                 then().statusCode(200).log().all().
-                body("value.id", equalTo(8)).
-                body("value.title", equalTo("Keyboards"));
+                body("value.id", equalTo(articleId)).
+                body("value.title", equalTo("AutotestTestArticle2022"));
     }
 
     @Category({FullRegressTests.class, SmokeTests.class})
@@ -111,7 +112,7 @@ public class ArticleServiceTests extends EaswaaqConnectionConfig {
         given().
                 header("Authorization", "Bearer " + token).
                 contentType("multipart/form-data").
-                pathParam("articleId", 28).
+                pathParam("articleId", articleId).
                 multiPart("image", bigUploadFile).
                 when().
                 post(ArticleServiceEndpoints.ARTICLE_IMAGE).
@@ -126,7 +127,7 @@ public class ArticleServiceTests extends EaswaaqConnectionConfig {
         given().
                 header("Authorization", "Bearer " + token).
                 contentType("multipart/form-data").
-                pathParam("articleId", 28).
+                pathParam("articleId", articleId).
                 multiPart("image", testUploadFile).
                 when().
                 post(ArticleServiceEndpoints.ARTICLE_IMAGE).

@@ -16,6 +16,8 @@ public class UserServiceTests extends EaswaaqConnectionConfig {
     static String loginOperator = "+209609514599";
     static String passwordOperator = "134509";
     static String profileTypeOperator =  "OPERATOR";
+    static int buyerId = 1859;
+    static int addressId = 852;
 
     @BeforeClass
     public static void getToken() {
@@ -55,5 +57,17 @@ public class UserServiceTests extends EaswaaqConnectionConfig {
                 then().statusCode(200).log().all().
                 body("value.company.id", equalTo(227)).
                 body("value.company.shortName", equalTo("Autotest Company"));
+    }
+
+    @Category({FullRegressTests.class, SmokeTests.class})
+    @Test
+    public void getBuyerDeliveryAddressTest()  {
+        given().
+                pathParam("addressId", addressId).
+                formParam("buyerId", buyerId).
+                header("Authorization", "Bearer " + token).
+                get(UserServiceEndpoints.DELIVERY_ADDRESS).
+                then().statusCode(200).log().all().
+                body("value.title", equalTo("MyAddress"));
     }
 }

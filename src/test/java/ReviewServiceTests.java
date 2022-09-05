@@ -17,6 +17,7 @@ public class ReviewServiceTests extends EaswaaqConnectionConfig {
     static String loginOperator = "+209609514599";
     static String passwordOperator = "134509";
     static String profileTypeOperator =  "OPERATOR";
+    static int reviewId = 16;
 
     @BeforeClass
     public static void getToken() {
@@ -36,11 +37,11 @@ public class ReviewServiceTests extends EaswaaqConnectionConfig {
     @Test
     public void getReviewTest() {
         given().
-                pathParam("reviewId", 16).
+                pathParam("reviewId", reviewId).
                 header("Authorization", "Bearer " + token).
                 get(ReviewServiceEndpoints.REVIEWS).
                 then().statusCode(200).log().all().
-                body("value.id", equalTo(16)).
+                body("value.id", equalTo(reviewId)).
                 body("value.securityDynamicInfo.orderId", equalTo(349));
     }
 }

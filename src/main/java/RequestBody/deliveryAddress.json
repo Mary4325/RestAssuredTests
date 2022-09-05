@@ -1,0 +1,26 @@
+{
+  "address": {
+    "countryWithId": {
+      "id": 1,
+      "country": {
+        "iso2": "Egypt",
+        "title": "Egypt"
+      }
+    },
+    "region": {
+      "id": 0,
+      "title": "Cairo"
+    },
+    "postalCode": "12345",
+    "city": "Abasya",
+    "addressLine": "12345, Cairo, Abasya, TestAddress"
+  },
+  "providerId": "svip-aramex",
+  "addressId": "852",
+  "sellerId": 1785,
+  "buyerId": 1859,
+  "tariffId": "1",
+  "transportCompany": "svip-aramex",
+  "preliminaryCost": 42.00,
+  "regionIdTo": 130103
+}
