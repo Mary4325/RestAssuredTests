@@ -1,0 +1,466 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="ReviewServiceTests" time="0.706" tests="1" errors="0" skipped="0" failures="0">
+  <properties>
+    <property name="java.specification.version" value="17"/>
+    <property name="sun.cpu.isalist" value="amd64"/>
+    <property name="sun.jnu.encoding" value="Cp1251"/>
+    <property name="java.class.path" value="D:\Projects\RestAssuredTests\RestAssuredTests\target\test-classes;D:\Projects\RestAssuredTests\RestAssuredTests\target\classes;D:\Users\a.gordeeva\.m2\repository\com\github\scribejava\scribejava-apis\8.3.1\scribejava-apis-8.3.1.jar;D:\Users\a.gordeeva\.m2\repository\com\github\scribejava\scribejava-core\8.3.1\scribejava-core-8.3.1.jar;D:\Users\a.gordeeva\.m2\repository\com\github\scribejava\scribejava-java8\8.3.1\scribejava-java8-8.3.1.jar;D:\Users\a.gordeeva\.m2\repository\junit\junit\4.13.2\junit-4.13.2.jar;D:\Users\a.gordeeva\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar;D:\Users\a.gordeeva\.m2\repository\org\junit\vintage\junit-vintage-engine\5.9.0\junit-vintage-engine-5.9.0.jar;D:\Users\a.gordeeva\.m2\repository\org\junit\platform\junit-platform-engine\1.9.0\junit-platform-engine-1.9.0.jar;D:\Users\a.gordeeva\.m2\repository\org\opentest4j\opentest4j\1.2.0\opentest4j-1.2.0.jar;D:\Users\a.gordeeva\.m2\repository\org\junit\platform\junit-platform-commons\1.9.0\junit-platform-commons-1.9.0.jar;D:\Users\a.gordeeva\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;D:\Users\a.gordeeva\.m2\repository\com\fasterxml\jackson\core\jackson-core\2.13.3\jackson-core-2.13.3.jar;D:\Users\a.gordeeva\.m2\repository\com\fasterxml\jackson\core\jackson-databind\2.13.3\jackson-databind-2.13.3.jar;D:\Users\a.gordeeva\.m2\repository\com\fasterxml\jackson\core\jackson-annotations\2.13.3\jackson-annotations-2.13.3.jar;D:\Users\a.gordeeva\.m2\repository\com\fasterxml\jackson\datatype\jackson-datatype-jsr310\2.13.4\jackson-datatype-jsr310-2.13.4.jar;D:\Users\a.gordeeva\.m2\repository\io\rest-assured\rest-assured\5.1.1\rest-assured-5.1.1.jar;D:\Users\a.gordeeva\.m2\repository\org\apache\groovy\groovy\4.0.1\groovy-4.0.1.jar;D:\Users\a.gordeeva\.m2\repository\org\apache\groovy\groovy-xml\4.0.1\groovy-xml-4.0.1.jar;D:\Users\a.gordeeva\.m2\repository\org\apache\httpcomponents\httpclient\4.5.13\httpclient-4.5.13.jar;D:\Users\a.gordeeva\.m2\repository\org\apache\httpcomponents\httpcore\4.4.13\httpcore-4.4.13.jar;D:\Users\a.gordeeva\.m2\repository\commons-logging\commons-logging\1.2\commons-logging-1.2.jar;D:\Users\a.gordeeva\.m2\repository\commons-codec\commons-codec\1.11\commons-codec-1.11.jar;D:\Users\a.gordeeva\.m2\repository\org\apache\httpcomponents\httpmime\4.5.13\httpmime-4.5.13.jar;D:\Users\a.gordeeva\.m2\repository\org\hamcrest\hamcrest\2.1\hamcrest-2.1.jar;D:\Users\a.gordeeva\.m2\repository\org\ccil\cowan\tagsoup\tagsoup\1.2.1\tagsoup-1.2.1.jar;D:\Users\a.gordeeva\.m2\repository\io\rest-assured\json-path\5.1.1\json-path-5.1.1.jar;D:\Users\a.gordeeva\.m2\repository\org\apache\groovy\groovy-json\4.0.1\groovy-json-4.0.1.jar;D:\Users\a.gordeeva\.m2\repository\io\rest-assured\rest-assured-common\5.1.1\rest-assured-common-5.1.1.jar;D:\Users\a.gordeeva\.m2\repository\io\rest-assured\xml-path\5.1.1\xml-path-5.1.1.jar;D:\Users\a.gordeeva\.m2\repository\org\apache\commons\commons-lang3\3.11\commons-lang3-3.11.jar;D:\Users\a.gordeeva\.m2\repository\com\tngtech\java\junit-dataprovider\1.13.1\junit-dataprovider-1.13.1.jar;D:\Users\a.gordeeva\.m2\repository\org\apache\logging\log4j\log4j-core\2.18.0\log4j-core-2.18.0.jar;D:\Users\a.gordeeva\.m2\repository\org\apache\logging\log4j\log4j-api\2.18.0\log4j-api-2.18.0.jar;D:\Users\a.gordeeva\.m2\repository\com\googlecode\json-simple\json-simple\1.1\json-simple-1.1.jar;D:\Users\a.gordeeva\.m2\repository\commons-io\commons-io\2.11.0\commons-io-2.11.0.jar;D:\Users\a.gordeeva\.m2\repository\org\seleniumhq\selenium\selenium-api\4.4.0\selenium-api-4.4.0.jar;"/>
+    <property name="java.vm.vendor" value="BellSoft"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="user.variant" value=""/>
+    <property name="java.vendor.url" value="https://bell-sw.com/"/>
+    <property name="user.timezone" value="Europe/Moscow"/>
+    <property name="os.name" value="Windows 10"/>
+    <property name="java.vm.specification.version" value="17"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="user.country" value="US"/>
+    <property name="sun.boot.library.path" value="C:\Program Files\BellSoft\LibericaJDK-17\bin"/>
+    <property name="sun.java.command" value="D:\Users\a.gordeeva\AppData\Local\Temp\surefire10190607290015755409\surefirebooter-20220909122415226_3.jar D:\Users\a.gordeeva\AppData\Local\Temp\surefire10190607290015755409 2022-09-09T12-24-14_808-jvmRun1 surefire-20220909122415226_1tmp surefire_0-20220909122415226_2tmp"/>
+    <property name="jdk.debug" value="release"/>
+    <property name="surefire.test.class.path" value="D:\Projects\RestAssuredTests\RestAssuredTests\target\test-classes;D:\Projects\RestAssuredTests\RestAssuredTests\target\classes;D:\Users\a.gordeeva\.m2\repository\com\github\scribejava\scribejava-apis\8.3.1\scribejava-apis-8.3.1.jar;D:\Users\a.gordeeva\.m2\repository\com\github\scribejava\scribejava-core\8.3.1\scribejava-core-8.3.1.jar;D:\Users\a.gordeeva\.m2\repository\com\github\scribejava\scribejava-java8\8.3.1\scribejava-java8-8.3.1.jar;D:\Users\a.gordeeva\.m2\repository\junit\junit\4.13.2\junit-4.13.2.jar;D:\Users\a.gordeeva\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar;D:\Users\a.gordeeva\.m2\repository\org\junit\vintage\junit-vintage-engine\5.9.0\junit-vintage-engine-5.9.0.jar;D:\Users\a.gordeeva\.m2\repository\org\junit\platform\junit-platform-engine\1.9.0\junit-platform-engine-1.9.0.jar;D:\Users\a.gordeeva\.m2\repository\org\opentest4j\opentest4j\1.2.0\opentest4j-1.2.0.jar;D:\Users\a.gordeeva\.m2\repository\org\junit\platform\junit-platform-commons\1.9.0\junit-platform-commons-1.9.0.jar;D:\Users\a.gordeeva\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;D:\Users\a.gordeeva\.m2\repository\com\fasterxml\jackson\core\jackson-core\2.13.3\jackson-core-2.13.3.jar;D:\Users\a.gordeeva\.m2\repository\com\fasterxml\jackson\core\jackson-databind\2.13.3\jackson-databind-2.13.3.jar;D:\Users\a.gordeeva\.m2\repository\com\fasterxml\jackson\core\jackson-annotations\2.13.3\jackson-annotations-2.13.3.jar;D:\Users\a.gordeeva\.m2\repository\com\fasterxml\jackson\datatype\jackson-datatype-jsr310\2.13.4\jackson-datatype-jsr310-2.13.4.jar;D:\Users\a.gordeeva\.m2\repository\io\rest-assured\rest-assured\5.1.1\rest-assured-5.1.1.jar;D:\Users\a.gordeeva\.m2\repository\org\apache\groovy\groovy\4.0.1\groovy-4.0.1.jar;D:\Users\a.gordeeva\.m2\repository\org\apache\groovy\groovy-xml\4.0.1\groovy-xml-4.0.1.jar;D:\Users\a.gordeeva\.m2\repository\org\apache\httpcomponents\httpclient\4.5.13\httpclient-4.5.13.jar;D:\Users\a.gordeeva\.m2\repository\org\apache\httpcomponents\httpcore\4.4.13\httpcore-4.4.13.jar;D:\Users\a.gordeeva\.m2\repository\commons-logging\commons-logging\1.2\commons-logging-1.2.jar;D:\Users\a.gordeeva\.m2\repository\commons-codec\commons-codec\1.11\commons-codec-1.11.jar;D:\Users\a.gordeeva\.m2\repository\org\apache\httpcomponents\httpmime\4.5.13\httpmime-4.5.13.jar;D:\Users\a.gordeeva\.m2\repository\org\hamcrest\hamcrest\2.1\hamcrest-2.1.jar;D:\Users\a.gordeeva\.m2\repository\org\ccil\cowan\tagsoup\tagsoup\1.2.1\tagsoup-1.2.1.jar;D:\Users\a.gordeeva\.m2\repository\io\rest-assured\json-path\5.1.1\json-path-5.1.1.jar;D:\Users\a.gordeeva\.m2\repository\org\apache\groovy\groovy-json\4.0.1\groovy-json-4.0.1.jar;D:\Users\a.gordeeva\.m2\repository\io\rest-assured\rest-assured-common\5.1.1\rest-assured-common-5.1.1.jar;D:\Users\a.gordeeva\.m2\repository\io\rest-assured\xml-path\5.1.1\xml-path-5.1.1.jar;D:\Users\a.gordeeva\.m2\repository\org\apache\commons\commons-lang3\3.11\commons-lang3-3.11.jar;D:\Users\a.gordeeva\.m2\repository\com\tngtech\java\junit-dataprovider\1.13.1\junit-dataprovider-1.13.1.jar;D:\Users\a.gordeeva\.m2\repository\org\apache\logging\log4j\log4j-core\2.18.0\log4j-core-2.18.0.jar;D:\Users\a.gordeeva\.m2\repository\org\apache\logging\log4j\log4j-api\2.18.0\log4j-api-2.18.0.jar;D:\Users\a.gordeeva\.m2\repository\com\googlecode\json-simple\json-simple\1.1\json-simple-1.1.jar;D:\Users\a.gordeeva\.m2\repository\commons-io\commons-io\2.11.0\commons-io-2.11.0.jar;D:\Users\a.gordeeva\.m2\repository\org\seleniumhq\selenium\selenium-api\4.4.0\selenium-api-4.4.0.jar;"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="user.home" value="D:\Users\a.gordeeva"/>
+    <property name="user.language" value="en"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.version.date" value="2022-04-22"/>
+    <property name="java.home" value="C:\Program Files\BellSoft\LibericaJDK-17"/>
+    <property name="file.separator" value="\"/>
+    <property name="basedir" value="D:\Projects\RestAssuredTests\RestAssuredTests"/>
+    <property name="java.vm.compressedOopsMode" value="Zero based"/>
+    <property name="line.separator" value="&#10;"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="surefire.real.class.path" value="D:\Users\a.gordeeva\AppData\Local\Temp\surefire10190607290015755409\surefirebooter-20220909122415226_3.jar"/>
+    <property name="user.script" value=""/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="java.runtime.version" value="17.0.3.1+2-LTS"/>
+    <property name="user.name" value="a.gordeeva"/>
+    <property name="path.separator" value=";"/>
+    <property name="os.version" value="10.0"/>
+    <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
+    <property name="file.encoding" value="Cp1251"/>
+    <property name="java.vm.name" value="OpenJDK 64-Bit Server VM"/>
+    <property name="localRepository" value="D:\Users\a.gordeeva\.m2\repository"/>
+    <property name="java.vendor.url.bug" value="https://bell-sw.com/support"/>
+    <property name="java.io.tmpdir" value="D:\Users\a.gordeeva\AppData\Local\Temp\"/>
+    <property name="java.version" value="17.0.3.1"/>
+    <property name="user.dir" value="D:\Projects\RestAssuredTests\RestAssuredTests"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="groups" value="ServicesUpCheckTests"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="sun.os.patch.level" value=""/>
+    <property name="native.encoding" value="Cp1251"/>
+    <property name="java.library.path" value="C:\Program Files\BellSoft\LibericaJDK-17\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Program Files\BellSoft\LibericaJDK-17\bin\;C:\Program Files\apache-maven-3.6.3\bin;C:\Program Files\BellSoft\LibericaJDK-11\bin\;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Docker\Docker\resources\bin;C:\ProgramData\DockerDesktop\version-bin;D:\Users\a.gordeeva\AppData\Local\Microsoft\WindowsApps;D:\Programs\Git\cmd;%IntelliJ IDEA Community Edition%;D:\Programs\Fiddler;."/>
+    <property name="java.vm.info" value="mixed mode, sharing"/>
+    <property name="java.vendor" value="BellSoft"/>
+    <property name="java.vm.version" value="17.0.3.1+2-LTS"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="java.class.version" value="61.0"/>
+  </properties>
+  <testcase name="getReviewTest" classname="ReviewServiceTests" time="0.257">
+    <system-out><![CDATA[Request method:	POST
+Request URI:	https://gateway.efinancetest.bpcmarketplace.com:443/user-service/api/external/jwtToken
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	<none>
+Headers:		Accept=application/json
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:
+{
+    "password": "134509",
+    "profileType": "OPERATOR",
+    "login": "+209609514599"
+}
+Request method:	POST
+Request URI:	https://gateway.efinancetest.bpcmarketplace.com:443/user-service/api/external/jwtToken
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	<none>
+Headers:		Accept=application/json
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:
+{
+    "password": "134509",
+    "profileType": "OPERATOR",
+    "login": "+209609514599"
+}
+HTTP/1.1 200 OK
+Server: nginx
+Date: Fri, 09 Sep 2022 09:24:19 GMT
+Content-Type: application/json; charset=utf-8
+Transfer-Encoding: chunked
+Connection: keep-alive
+Vary: Accept-Encoding
+Vary: Origin
+Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Headers
+Expires: Fri, 09 Sep 2022 09:24:19 GMT
+Cache-Control: max-age=0
+Strict-Transport-Security: max-age=16070400; includeSubDomains
+X-Content-Type-Options: nosniff
+Content-Encoding: gzip
+
+{
+    "value": {
+        "token": "eyJhbGciOiJFUzI1NiJ9.eyJzdWIiOiI5MDEiLCJpYXQiOjE2NjI3MTU0NTksImV4cCI6MTY2MjcxNjY1OSwicnQiOiJiNTY3N2U1My0wNTk3LTQ4NTEtYWRmYi0wM2Q0NDg4YjQ1YTUiLCJydGV4cCI6MTY2Nzg5OTQ1OSwidXNlciI6IntcImlkXCI6OTAxLFwibG9naW5cIjpcIisyMDk2MDk1MTQ1OTlcIixcInBob25lTnVtYmVyXCI6e1wiY291bnRyeUNvZGVcIjoyMCxcIm5hdGlvbmFsTnVtYmVyXCI6OTYwOTUxNDU5OSxcIml0YWxpYW5MZWFkaW5nWmVyb1wiOmZhbHNlfSxcImVtYWlsXCI6XCJ0ZXN0ZXJAZ2Rlc2VtZW5hLnJ1XCIsXCJmdWxsTmFtZVwiOntcImZpcnN0TmFtZVwiOlwiVGVzdFwiLFwibGFzdE5hbWVcIjpcIlRlc3RcIixcIm1pZGRsZU5hbWVcIjpcIlRlc3RcIn0sXCJwcml2aWxlZ2VzXCI6Wy0xNDQwNDcwMTgzNjc1MTY2NzMsMjE5Nzk0MzA5NzYxNV0sXCJjdXJyZW50UHJvZmlsZVwiOlwiT1BFUkFUT1JcIixcIm9wZXJhdG9yUHJvZmlsZVwiOntcImlkXCI6MTI0NyxcInN0YXR1c1wiOlwiTkVXXCJ9LFwiYmxvY2tlZFwiOmZhbHNlLFwidmVyaWZpZWRcIjpmYWxzZSxcInRlcm1zVXNlSWRcIjowfSJ9.I-PRS_7z22FbQjw6tD5TjVA8GLUEvTcAn9bdTS9RdlSFnfWJgph6yYB9hTM63Z9pwLfaYtDeobA1eEZYtC8bjQ",
+        "privileges": [
+            "MERCHANT_PROFILE_WRITE",
+            "MERCHANT_PROFILE_READ",
+            "COMPANIES_WRITE",
+            "COMPANIES_READ",
+            "MEMBERS_WRITE",
+            "MEMBERS_READ",
+            "ORDER_READ",
+            "ORDER_WRITE",
+            "CLIENTS_WRITE",
+            "CLIENTS_READ",
+            "ITEMS_READ",
+            "ITEMS_WRITE",
+            "REQUESTS_READ",
+            "REQUESTS_WRITE",
+            "PAGES_WRITE",
+            "PAGES_READ",
+            "ARTICLES_WRITE",
+            "ARTICLES_READ",
+            "LOGS_REPORT_READ",
+            "DASHBOARD_READ",
+            "USER_PROFILE_READ",
+            "USER_PROFILE_WRITE",
+            "ORDER_RETURNS_READ",
+            "ORDER_RETURNS_WRITE",
+            "AUDIT_USERS_READ",
+            "AUDIT_OPERATORS_READ",
+            "OPERATORS_READ",
+            "OPERATORS_WRITE",
+            "ROLES_READ",
+            "ROLES_WRITE",
+            "TEMPLATES_READ",
+            "TEMPLATE_WRITE",
+            "BLOCKS_READ",
+            "BLOCKS_WRITE",
+            "MEDIA_READ",
+            "MEDIA_WRITE",
+            "REVIEWS_READ",
+            "REVIEWS_WRITE",
+            "REVIEW_TEMPLATES_READ",
+            "MARKETING_COMPANIES_READ",
+            "MARKETING_COMPANIES_WRITE",
+            "PROMOCODES_READ",
+            "PROMOCODES_WRITE",
+            "DISPUTES_READ",
+            "DISPUTES_WRITE",
+            "TAGS_READ",
+            "TAGS_WRITE",
+            "CATEGORY_COMMISSION_READ",
+            "CATEGORY_COMMISSION_WRITE",
+            "MERCHANT_COMPANY_WRITE",
+            "CATEGORY_READ",
+            "CATEGORY_WRITE",
+            "PAGE_SEO_TAGS_READ",
+            "PAGE_SEO_TAGS_WRITE",
+            "DISPUTE_SETTINGS_WRITE",
+            "USER_REGIONS_READ",
+            "USER_REGIONS_WRITE",
+            "MARKETPLACE_SETTINGS_READ",
+            "MARKETPLACE_SETTINGS_WRITE",
+            "INVOICES_TEMPLATES_READ",
+            "INVOICES_TEMPLATES_WRITE",
+            "VIEWS_READ",
+            "PAYMENT_ATTRIBUTES_READ",
+            "PAYMENT_ATTRIBUTES_WRITE",
+            "LICENSES_READ",
+            "LICENSES_WRITE",
+            "NOTIFICATIONS_READ",
+            "NOTIFICATIONS_WRITE",
+            "ITEM_RULES_READ",
+            "ITEM_RULES_WRITE",
+            "FDS_READ",
+            "FDS_WRITE",
+            "PROMOTIONS_READ",
+            "PROMOTIONS_WRITE",
+            "MERCHANT_PAYMENT_METHODS_READ",
+            "MERCHANT_PAYMENT_METHODS_WRITE",
+            "MERCHANT_DELIVERY_METHODS_READ",
+            "MERCHANT_DELIVERY_METHODS_WRITE"
+        ],
+        "deviceBindingRequired": false,
+        "shouldAcceptNewTerms": false
+    },
+    "success": true
+}
+HTTP/1.1 200 OK
+Server: nginx
+Date: Fri, 09 Sep 2022 09:24:19 GMT
+Content-Type: application/json; charset=utf-8
+Transfer-Encoding: chunked
+Connection: keep-alive
+Vary: Accept-Encoding
+Vary: Origin
+Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Headers
+Expires: Fri, 09 Sep 2022 09:24:19 GMT
+Cache-Control: max-age=0
+Strict-Transport-Security: max-age=16070400; includeSubDomains
+X-Content-Type-Options: nosniff
+Content-Encoding: gzip
+
+{
+    "value": {
+        "token": "eyJhbGciOiJFUzI1NiJ9.eyJzdWIiOiI5MDEiLCJpYXQiOjE2NjI3MTU0NTksImV4cCI6MTY2MjcxNjY1OSwicnQiOiJiNTY3N2U1My0wNTk3LTQ4NTEtYWRmYi0wM2Q0NDg4YjQ1YTUiLCJydGV4cCI6MTY2Nzg5OTQ1OSwidXNlciI6IntcImlkXCI6OTAxLFwibG9naW5cIjpcIisyMDk2MDk1MTQ1OTlcIixcInBob25lTnVtYmVyXCI6e1wiY291bnRyeUNvZGVcIjoyMCxcIm5hdGlvbmFsTnVtYmVyXCI6OTYwOTUxNDU5OSxcIml0YWxpYW5MZWFkaW5nWmVyb1wiOmZhbHNlfSxcImVtYWlsXCI6XCJ0ZXN0ZXJAZ2Rlc2VtZW5hLnJ1XCIsXCJmdWxsTmFtZVwiOntcImZpcnN0TmFtZVwiOlwiVGVzdFwiLFwibGFzdE5hbWVcIjpcIlRlc3RcIixcIm1pZGRsZU5hbWVcIjpcIlRlc3RcIn0sXCJwcml2aWxlZ2VzXCI6Wy0xNDQwNDcwMTgzNjc1MTY2NzMsMjE5Nzk0MzA5NzYxNV0sXCJjdXJyZW50UHJvZmlsZVwiOlwiT1BFUkFUT1JcIixcIm9wZXJhdG9yUHJvZmlsZVwiOntcImlkXCI6MTI0NyxcInN0YXR1c1wiOlwiTkVXXCJ9LFwiYmxvY2tlZFwiOmZhbHNlLFwidmVyaWZpZWRcIjpmYWxzZSxcInRlcm1zVXNlSWRcIjowfSJ9.I-PRS_7z22FbQjw6tD5TjVA8GLUEvTcAn9bdTS9RdlSFnfWJgph6yYB9hTM63Z9pwLfaYtDeobA1eEZYtC8bjQ",
+        "privileges": [
+            "MERCHANT_PROFILE_WRITE",
+            "MERCHANT_PROFILE_READ",
+            "COMPANIES_WRITE",
+            "COMPANIES_READ",
+            "MEMBERS_WRITE",
+            "MEMBERS_READ",
+            "ORDER_READ",
+            "ORDER_WRITE",
+            "CLIENTS_WRITE",
+            "CLIENTS_READ",
+            "ITEMS_READ",
+            "ITEMS_WRITE",
+            "REQUESTS_READ",
+            "REQUESTS_WRITE",
+            "PAGES_WRITE",
+            "PAGES_READ",
+            "ARTICLES_WRITE",
+            "ARTICLES_READ",
+            "LOGS_REPORT_READ",
+            "DASHBOARD_READ",
+            "USER_PROFILE_READ",
+            "USER_PROFILE_WRITE",
+            "ORDER_RETURNS_READ",
+            "ORDER_RETURNS_WRITE",
+            "AUDIT_USERS_READ",
+            "AUDIT_OPERATORS_READ",
+            "OPERATORS_READ",
+            "OPERATORS_WRITE",
+            "ROLES_READ",
+            "ROLES_WRITE",
+            "TEMPLATES_READ",
+            "TEMPLATE_WRITE",
+            "BLOCKS_READ",
+            "BLOCKS_WRITE",
+            "MEDIA_READ",
+            "MEDIA_WRITE",
+            "REVIEWS_READ",
+            "REVIEWS_WRITE",
+            "REVIEW_TEMPLATES_READ",
+            "MARKETING_COMPANIES_READ",
+            "MARKETING_COMPANIES_WRITE",
+            "PROMOCODES_READ",
+            "PROMOCODES_WRITE",
+            "DISPUTES_READ",
+            "DISPUTES_WRITE",
+            "TAGS_READ",
+            "TAGS_WRITE",
+            "CATEGORY_COMMISSION_READ",
+            "CATEGORY_COMMISSION_WRITE",
+            "MERCHANT_COMPANY_WRITE",
+            "CATEGORY_READ",
+            "CATEGORY_WRITE",
+            "PAGE_SEO_TAGS_READ",
+            "PAGE_SEO_TAGS_WRITE",
+            "DISPUTE_SETTINGS_WRITE",
+            "USER_REGIONS_READ",
+            "USER_REGIONS_WRITE",
+            "MARKETPLACE_SETTINGS_READ",
+            "MARKETPLACE_SETTINGS_WRITE",
+            "INVOICES_TEMPLATES_READ",
+            "INVOICES_TEMPLATES_WRITE",
+            "VIEWS_READ",
+            "PAYMENT_ATTRIBUTES_READ",
+            "PAYMENT_ATTRIBUTES_WRITE",
+            "LICENSES_READ",
+            "LICENSES_WRITE",
+            "NOTIFICATIONS_READ",
+            "NOTIFICATIONS_WRITE",
+            "ITEM_RULES_READ",
+            "ITEM_RULES_WRITE",
+            "FDS_READ",
+            "FDS_WRITE",
+            "PROMOTIONS_READ",
+            "PROMOTIONS_WRITE",
+            "MERCHANT_PAYMENT_METHODS_READ",
+            "MERCHANT_PAYMENT_METHODS_WRITE",
+            "MERCHANT_DELIVERY_METHODS_READ",
+            "MERCHANT_DELIVERY_METHODS_WRITE"
+        ],
+        "deviceBindingRequired": false,
+        "shouldAcceptNewTerms": false
+    },
+    "success": true
+}
+Request method:	GET
+Request URI:	https://gateway.efinancetest.bpcmarketplace.com:443/review-service/api/external/reviews/16
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	reviewId=16
+Headers:		Accept=application/json
+				Authorization=Bearer eyJhbGciOiJFUzI1NiJ9.eyJzdWIiOiI5MDEiLCJpYXQiOjE2NjI3MTU0NTksImV4cCI6MTY2MjcxNjY1OSwicnQiOiJiNTY3N2U1My0wNTk3LTQ4NTEtYWRmYi0wM2Q0NDg4YjQ1YTUiLCJydGV4cCI6MTY2Nzg5OTQ1OSwidXNlciI6IntcImlkXCI6OTAxLFwibG9naW5cIjpcIisyMDk2MDk1MTQ1OTlcIixcInBob25lTnVtYmVyXCI6e1wiY291bnRyeUNvZGVcIjoyMCxcIm5hdGlvbmFsTnVtYmVyXCI6OTYwOTUxNDU5OSxcIml0YWxpYW5MZWFkaW5nWmVyb1wiOmZhbHNlfSxcImVtYWlsXCI6XCJ0ZXN0ZXJAZ2Rlc2VtZW5hLnJ1XCIsXCJmdWxsTmFtZVwiOntcImZpcnN0TmFtZVwiOlwiVGVzdFwiLFwibGFzdE5hbWVcIjpcIlRlc3RcIixcIm1pZGRsZU5hbWVcIjpcIlRlc3RcIn0sXCJwcml2aWxlZ2VzXCI6Wy0xNDQwNDcwMTgzNjc1MTY2NzMsMjE5Nzk0MzA5NzYxNV0sXCJjdXJyZW50UHJvZmlsZVwiOlwiT1BFUkFUT1JcIixcIm9wZXJhdG9yUHJvZmlsZVwiOntcImlkXCI6MTI0NyxcInN0YXR1c1wiOlwiTkVXXCJ9LFwiYmxvY2tlZFwiOmZhbHNlLFwidmVyaWZpZWRcIjpmYWxzZSxcInRlcm1zVXNlSWRcIjowfSJ9.I-PRS_7z22FbQjw6tD5TjVA8GLUEvTcAn9bdTS9RdlSFnfWJgph6yYB9hTM63Z9pwLfaYtDeobA1eEZYtC8bjQ
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:			<none>
+Request method:	GET
+Request URI:	https://gateway.efinancetest.bpcmarketplace.com:443/review-service/api/external/reviews/16
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	reviewId=16
+Headers:		Accept=application/json
+				Authorization=Bearer eyJhbGciOiJFUzI1NiJ9.eyJzdWIiOiI5MDEiLCJpYXQiOjE2NjI3MTU0NTksImV4cCI6MTY2MjcxNjY1OSwicnQiOiJiNTY3N2U1My0wNTk3LTQ4NTEtYWRmYi0wM2Q0NDg4YjQ1YTUiLCJydGV4cCI6MTY2Nzg5OTQ1OSwidXNlciI6IntcImlkXCI6OTAxLFwibG9naW5cIjpcIisyMDk2MDk1MTQ1OTlcIixcInBob25lTnVtYmVyXCI6e1wiY291bnRyeUNvZGVcIjoyMCxcIm5hdGlvbmFsTnVtYmVyXCI6OTYwOTUxNDU5OSxcIml0YWxpYW5MZWFkaW5nWmVyb1wiOmZhbHNlfSxcImVtYWlsXCI6XCJ0ZXN0ZXJAZ2Rlc2VtZW5hLnJ1XCIsXCJmdWxsTmFtZVwiOntcImZpcnN0TmFtZVwiOlwiVGVzdFwiLFwibGFzdE5hbWVcIjpcIlRlc3RcIixcIm1pZGRsZU5hbWVcIjpcIlRlc3RcIn0sXCJwcml2aWxlZ2VzXCI6Wy0xNDQwNDcwMTgzNjc1MTY2NzMsMjE5Nzk0MzA5NzYxNV0sXCJjdXJyZW50UHJvZmlsZVwiOlwiT1BFUkFUT1JcIixcIm9wZXJhdG9yUHJvZmlsZVwiOntcImlkXCI6MTI0NyxcInN0YXR1c1wiOlwiTkVXXCJ9LFwiYmxvY2tlZFwiOmZhbHNlLFwidmVyaWZpZWRcIjpmYWxzZSxcInRlcm1zVXNlSWRcIjowfSJ9.I-PRS_7z22FbQjw6tD5TjVA8GLUEvTcAn9bdTS9RdlSFnfWJgph6yYB9hTM63Z9pwLfaYtDeobA1eEZYtC8bjQ
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:			<none>
+HTTP/1.1 200 OK
+Server: nginx
+Date: Fri, 09 Sep 2022 09:24:19 GMT
+Content-Type: application/json; charset=utf-8
+Transfer-Encoding: chunked
+Connection: keep-alive
+Vary: Accept-Encoding
+Vary: Origin
+Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Headers
+Expires: Fri, 09 Sep 2022 09:24:19 GMT
+Cache-Control: max-age=0
+Strict-Transport-Security: max-age=16070400; includeSubDomains
+X-Content-Type-Options: nosniff
+Content-Encoding: gzip
+
+{
+    "value": {
+        "id": 16,
+        "userId": 1174,
+        "securityDynamicInfo": {
+            "buyerId": 1740,
+            "orderId": 349,
+            "sellerId": 1330,
+            "legalSeller": true
+        },
+        "userInfo": {
+            "fullName": {
+                "firstName": "Test",
+                "lastName": "Test"
+            },
+            "hideUserInfo": true
+        },
+        "score": 5,
+        "message": "Good seller, quick delivery!",
+        "entityType": "ORDER",
+        "refEntityType": "SELLER",
+        "entityId": 349,
+        "refEntityId": 1330,
+        "status": "PUBLISHED_UNCHECKED",
+        "createdAt": "2022-05-13T12:35:45.369596Z",
+        "updatedAt": "2022-05-13T12:35:45.369596Z"
+    },
+    "success": true
+}
+HTTP/1.1 200 OK
+Server: nginx
+Date: Fri, 09 Sep 2022 09:24:19 GMT
+Content-Type: application/json; charset=utf-8
+Transfer-Encoding: chunked
+Connection: keep-alive
+Vary: Accept-Encoding
+Vary: Origin
+Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Headers
+Expires: Fri, 09 Sep 2022 09:24:19 GMT
+Cache-Control: max-age=0
+Strict-Transport-Security: max-age=16070400; includeSubDomains
+X-Content-Type-Options: nosniff
+Content-Encoding: gzip
+
+{
+    "value": {
+        "id": 16,
+        "userId": 1174,
+        "securityDynamicInfo": {
+            "buyerId": 1740,
+            "orderId": 349,
+            "sellerId": 1330,
+            "legalSeller": true
+        },
+        "userInfo": {
+            "fullName": {
+                "firstName": "Test",
+                "lastName": "Test"
+            },
+            "hideUserInfo": true
+        },
+        "score": 5,
+        "message": "Good seller, quick delivery!",
+        "entityType": "ORDER",
+        "refEntityType": "SELLER",
+        "entityId": 349,
+        "refEntityId": 1330,
+        "status": "PUBLISHED_UNCHECKED",
+        "createdAt": "2022-05-13T12:35:45.369596Z",
+        "updatedAt": "2022-05-13T12:35:45.369596Z"
+    },
+    "success": true
+}
+HTTP/1.1 200 OK
+Server: nginx
+Date: Fri, 09 Sep 2022 09:24:19 GMT
+Content-Type: application/json; charset=utf-8
+Transfer-Encoding: chunked
+Connection: keep-alive
+Vary: Accept-Encoding
+Vary: Origin
+Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Headers
+Expires: Fri, 09 Sep 2022 09:24:19 GMT
+Cache-Control: max-age=0
+Strict-Transport-Security: max-age=16070400; includeSubDomains
+X-Content-Type-Options: nosniff
+Content-Encoding: gzip
+
+{
+    "value": {
+        "id": 16,
+        "userId": 1174,
+        "securityDynamicInfo": {
+            "buyerId": 1740,
+            "orderId": 349,
+            "sellerId": 1330,
+            "legalSeller": true
+        },
+        "userInfo": {
+            "fullName": {
+                "firstName": "Test",
+                "lastName": "Test"
+            },
+            "hideUserInfo": true
+        },
+        "score": 5,
+        "message": "Good seller, quick delivery!",
+        "entityType": "ORDER",
+        "refEntityType": "SELLER",
+        "entityId": 349,
+        "refEntityId": 1330,
+        "status": "PUBLISHED_UNCHECKED",
+        "createdAt": "2022-05-13T12:35:45.369596Z",
+        "updatedAt": "2022-05-13T12:35:45.369596Z"
+    },
+    "success": true
+}
+]]></system-out>
+  </testcase>
+</testsuite>

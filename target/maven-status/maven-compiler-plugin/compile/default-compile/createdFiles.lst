@@ -1,0 +1,6 @@
+utils\UfmProperties.class
+utils\JsonUtil.class
+Pojo\Login.class
+utils\AppHelper.class
+utils\FileUtil.class
+Pojo\ItemStatus.class
