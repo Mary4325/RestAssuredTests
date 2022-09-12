@@ -4,6 +4,7 @@ import config.CartServiceEndpoints;
 import config.EaswaaqConnectionConfig;
 import config.UserServiceEndpoints;
 import config.category_markers.FullRegressTests;
+import config.category_markers.ServicesUpCheckTests;
 import config.category_markers.SmokeTests;
 import io.restassured.http.ContentType;
 import org.junit.Before;
@@ -66,15 +67,6 @@ public class CartServiceTests extends EaswaaqConnectionConfig {
         helper = new AppHelper();
     }
 
-    @Test
-    public void updateDeliveryTest() throws IOException {
-        ObjectMapper mapper = new ObjectMapper();
-        byte[] address = Files.readAllBytes(Paths.get("src/main/java/RequestBody/deliveryAddress.json"));
-        String json = new String(address, StandardCharsets.ISO_8859_1);
-        String addressBodyJson = mapper.writeValueAsString(json);
-        System.out.println(addressBodyJson);
-    }
-
     @Category({FullRegressTests.class, SmokeTests.class})
     @Test
     public void createGetClearWishlistTest() {
@@ -112,7 +104,7 @@ public class CartServiceTests extends EaswaaqConnectionConfig {
 
     @Category({FullRegressTests.class, SmokeTests.class})
     @Test
-    public void AddGetDeleteItemsToCartTest() {
+    public void addGetDeleteItemsToCartTest() {
         String cartBodyJson = """    
                 {"buyerId": %s, "verifiedBuyer": true,
                 "items": [{"skuId": %s,"count": 1},
@@ -229,6 +221,7 @@ public class CartServiceTests extends EaswaaqConnectionConfig {
                 then().statusCode(200).log().all();
     }
 
+    @Category({ServicesUpCheckTests.class})
     @Test
     public void getCartTest() {
         given().

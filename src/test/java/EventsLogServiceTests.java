@@ -1,11 +1,13 @@
 import Pojo.Login;
 import config.EaswaaqConnectionConfig;
-import config.LogisticsServiceEndpoints;
+import config.EventsLogServiceEndpoints;
+import config.OrderServiceEndpoints;
 import config.UserServiceEndpoints;
 import config.category_markers.FullRegressTests;
 import config.category_markers.ServicesUpCheckTests;
 import config.category_markers.SmokeTests;
 import io.restassured.http.ContentType;
+import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
@@ -13,12 +15,11 @@ import org.junit.experimental.categories.Category;
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.equalTo;
 
-public class LogisticsServiceTests extends EaswaaqConnectionConfig {
+public class EventsLogServiceTests extends EaswaaqConnectionConfig {
     static String token;
     static String loginOperator = "+209609514599";
     static String passwordOperator = "134509";
     static String profileTypeOperator =  "OPERATOR";
-    static int sellerId = 1785;
 
     @BeforeClass
     public static void getToken() {
@@ -36,15 +37,18 @@ public class LogisticsServiceTests extends EaswaaqConnectionConfig {
 
     @Category({FullRegressTests.class, SmokeTests.class, ServicesUpCheckTests.class})
     @Test
-    public void getSellerDeliveryMethodsTest() {
-        given().
+    public void getAuditTest() {
+        Integer totalCount = given().
+                queryParams("operators", true).
+                queryParams("users", true).
+                queryParams("page.num", 1).
+                queryParams("page.size", 10).
                 header("Authorization", "Bearer " + token).
-                queryParams("sellerId", sellerId).
-                get(LogisticsServiceEndpoints.DELIVERY_METHODS).
+                get(EventsLogServiceEndpoints.AUDIT).
                 then().statusCode(200).log().all().
-                body("value [0].selected", equalTo(true)).
-                body("value [0].providerName", equalTo("ARAMEX")).
-                body("value [1].selected", equalTo(false)).
-                body("value [1].providerName", equalTo("DBS"));
+                body("success", equalTo(true)).
+                extract().
+                response().path("value.totalCount");
+        Assert.assertTrue(totalCount > 270000);
     }
 }

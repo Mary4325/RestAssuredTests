@@ -3,6 +3,7 @@ import config.EaswaaqConnectionConfig;
 import config.OrderServiceEndpoints;
 import config.UserServiceEndpoints;
 import config.category_markers.FullRegressTests;
+import config.category_markers.ServicesUpCheckTests;
 import config.category_markers.SmokeTests;
 import io.restassured.http.ContentType;
 import org.junit.BeforeClass;
@@ -18,6 +19,10 @@ public class OrderServiceTests extends EaswaaqConnectionConfig {
     static String passwordOperator = "134509";
     static String profileTypeOperator =  "OPERATOR";
 
+    static int sellerId = 1785;
+    static int orderId = 1099;
+    static int unitedOrderId= 1063;
+
     @BeforeClass
     public static void getToken() {
         Login loginInfo = new Login(loginOperator, passwordOperator, profileTypeOperator);
@@ -31,6 +36,7 @@ public class OrderServiceTests extends EaswaaqConnectionConfig {
                         .extract()
                         .response().path("value.token").toString();
     }
+    @Category({FullRegressTests.class, ServicesUpCheckTests.class})
     @Test
     public void getDisputeTest() {
         given().
@@ -40,7 +46,7 @@ public class OrderServiceTests extends EaswaaqConnectionConfig {
                 header("Authorization", "Bearer " + token).
                 get(OrderServiceEndpoints.DISPUTES).
                 then().log().all().
-                body("value.data [0].orderId", equalTo(1099)).
+                body("value.data [0].orderId", equalTo(orderId)).
                 body("value.data [0].disputeReasonTitle", equalTo("The Ordered Item Never Arrived"));
     }
 
@@ -48,12 +54,12 @@ public class OrderServiceTests extends EaswaaqConnectionConfig {
     @Test
     public void getOrderTest() {
         given().
-                pathParams("orderId", 409).
+                pathParams("orderId", orderId).
                 header("Authorization", "Bearer " + token).
                 get(OrderServiceEndpoints.ORDERS).
                 then().log().all().
-                body("value.id", equalTo(409)).
-                body("value.unitedOrderId", equalTo(380));
+                body("value.id", equalTo(orderId)).
+                body("value.unitedOrderId", equalTo(unitedOrderId));
     }
 
     @Category({FullRegressTests.class, SmokeTests.class})
@@ -61,7 +67,7 @@ public class OrderServiceTests extends EaswaaqConnectionConfig {
     public void getMerchantPaymentMethodsTest() {
         given().
                 header("Authorization", "Bearer " + token).
-                queryParams("sellerId", 1785).
+                queryParams("sellerId", sellerId).
                 get(OrderServiceEndpoints.PAYMENT_METHODS).
                 then().statusCode(200).log().all().
                 body("value [0].selected", equalTo(true)).

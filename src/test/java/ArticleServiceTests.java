@@ -3,6 +3,7 @@ import config.ArticleServiceEndpoints;
 import config.EaswaaqConnectionConfig;
 import config.UserServiceEndpoints;
 import config.category_markers.FullRegressTests;
+import config.category_markers.ServicesUpCheckTests;
 import config.category_markers.SmokeTests;
 import io.restassured.http.ContentType;
 import org.junit.Assert;
@@ -46,7 +47,7 @@ public class ArticleServiceTests extends EaswaaqConnectionConfig {
         randomInt = randomGenerator.nextInt(1000); // get random number in the range of 0-1000
     }
 
-    @Category({FullRegressTests.class, SmokeTests.class})
+    @Category({FullRegressTests.class, SmokeTests.class, ServicesUpCheckTests.class})
     @Test
     public void getArticleTest() {
         given().

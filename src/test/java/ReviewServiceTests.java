@@ -3,6 +3,7 @@ import config.EaswaaqConnectionConfig;
 import config.ReviewServiceEndpoints;
 import config.UserServiceEndpoints;
 import config.category_markers.FullRegressTests;
+import config.category_markers.ServicesUpCheckTests;
 import config.category_markers.SmokeTests;
 import io.restassured.http.ContentType;
 import org.junit.BeforeClass;
@@ -33,7 +34,7 @@ public class ReviewServiceTests extends EaswaaqConnectionConfig {
                         .response().path("value.token").toString();
     }
 
-    @Category({FullRegressTests.class, SmokeTests.class})
+    @Category({FullRegressTests.class, SmokeTests.class, ServicesUpCheckTests.class})
     @Test
     public void getReviewTest() {
         given().

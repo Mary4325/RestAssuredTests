@@ -2,6 +2,7 @@ import Pojo.Login;
 import config.EaswaaqConnectionConfig;
 import config.UserServiceEndpoints;
 import config.category_markers.FullRegressTests;
+import config.category_markers.ServicesUpCheckTests;
 import config.category_markers.SmokeTests;
 import io.restassured.http.ContentType;
 import org.junit.Assert;
@@ -21,7 +22,7 @@ public class AuthenticationTests extends EaswaaqConnectionConfig {
     static String passwordBuyer = "Qwe!2345";
     static String profileTypeBuyer =  "COMMON_BUYER";
 
-    @Category({FullRegressTests.class, SmokeTests.class})
+    @Category({FullRegressTests.class, SmokeTests.class, ServicesUpCheckTests.class})
     @Test
     public void getOperatorToken() {
         Login loginInfo = new Login(loginOperator, passwordOperator, profileTypeOperator);

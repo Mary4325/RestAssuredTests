@@ -4,6 +4,7 @@ import config.EaswaaqConnectionConfig;
 import config.ItemServiceEndpoints;
 import config.UserServiceEndpoints;
 import config.category_markers.FullRegressTests;
+import config.category_markers.ServicesUpCheckTests;
 import config.category_markers.SmokeTests;
 import io.restassured.http.ContentType;
 import org.junit.Assert;
@@ -48,9 +49,9 @@ public class ItemServiceTests extends EaswaaqConnectionConfig {
         randomInt = randomGenerator.nextInt(1000); // get random number in the range of 0-1000
     }
 
-    @Category({FullRegressTests.class, SmokeTests.class})
+    @Category({FullRegressTests.class, SmokeTests.class, ServicesUpCheckTests.class})
     @Test
-    public void getProductTest() {
+    public void getItemTest() {
         given().
                 pathParam("itemId", 83632).
                 header("Authorization", "Bearer " + token).
@@ -61,7 +62,7 @@ public class ItemServiceTests extends EaswaaqConnectionConfig {
 
     @Test
     @Ignore
-    public void changeProductStatusTest() {
+    public void changeItemStatusTest() {
         String value = "83632";
         ItemStatus itemstatus = new ItemStatus(new String []{value}, "PUBLISHED");
 
@@ -75,7 +76,7 @@ public class ItemServiceTests extends EaswaaqConnectionConfig {
 
     @Category({FullRegressTests.class, SmokeTests.class})
     @Test
-    public void createUpdateDeleteProductTest() {
+    public void createUpdateDeleteItemTest() {
         String productBodyJson = """
                 {"title":"AutotestProduct",
                 "description":"<p>AutotestProduct 2022</p>",
@@ -301,6 +302,7 @@ public class ItemServiceTests extends EaswaaqConnectionConfig {
     }
 
     @Category({FullRegressTests.class, SmokeTests.class})
+    @Ignore
     @Test
     public void getPromocodeTest() {
         given().
@@ -314,7 +316,7 @@ public class ItemServiceTests extends EaswaaqConnectionConfig {
 
     @Category({FullRegressTests.class, SmokeTests.class})
     @Test
-    public void createUpdateDeletePromocodeTest() {
+    public void createUpdateGetDeletePromocodeTest() {
         String promocodeBodyJson = """
                 {"code": "%s",
                 "type": "PERCENT",
@@ -345,10 +347,18 @@ public class ItemServiceTests extends EaswaaqConnectionConfig {
                 then().statusCode(200).log().all();
 
         given().
+                pathParam("promocodeId",value).
+                header("Authorization", "Bearer " + token).
+                get(ItemServiceEndpoints.PROMOCODE).
+                then().statusCode(200).log().all().
+                body("value [0].id", equalTo(value)).
+                body("value [0].code", equalTo("promocode"+ randomInt));
+
+        given().
                 header("Authorization", "Bearer " + token).
                 pathParam("promocodeId", value).
-                when()
-                .delete(ItemServiceEndpoints.PROMOCODE).
+                when().
+                delete(ItemServiceEndpoints.PROMOCODE).
                 then().statusCode(200).log().all();
         }
     }
