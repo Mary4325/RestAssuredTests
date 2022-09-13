@@ -14,4 +14,5 @@ public interface ItemServiceEndpoints {
     String CAMPAIGN = "/item-service/api/external/marketingCompanies/{campaignId}";
     String BADGES = "item-service/api/external/badges";
     String BADGE = "item-service/api/external/badges/{badgeId}";
+    String STOCK_ADDRESS = "item-service/api/external/stockAddress";
 }
